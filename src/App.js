@@ -1,6 +1,10 @@
 import './App.css';
+import Home from './Home';
+
 
 import React from 'react';
-const App = () => <div>Welcome to Razzle.</div>;
+const App = () => (
+    <Home/>        
+)
 
 export default App;
