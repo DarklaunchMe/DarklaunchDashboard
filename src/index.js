@@ -1,8 +1,8 @@
 import express from 'express';
-import app from './server';
+import app from './server/server';
 
 if (module.hot) {
-  module.hot.accept('./server', function() {
+  module.hot.accept('./server/server', function() {
     console.log('🔁  HMR Reloading `./server`...');
   });
   console.info('✅  Server-side HMR Enabled!');

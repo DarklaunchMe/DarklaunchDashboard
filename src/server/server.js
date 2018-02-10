@@ -1,4 +1,4 @@
-import App from './App';
+import App from './../frontend/App';
 import BodyParser from 'body-parser';
 import React from 'react';
 import express from 'express';
