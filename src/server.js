@@ -8,8 +8,8 @@ var sqlite3 = require('sqlite3').verbose();
 var db = new sqlite3.Database('darklaunch.db');
 
 db.serialize(function() {
-  // db.run("DROP TABLE codes")
-  db.run("CREATE TABLE IF NOT EXISTS codes (code TEXT PRIMARY KEY, enabled INTEGER, key TEXT, value TEXT)");
+  db.run("CREATE TABLE IF NOT EXISTS codes (code TEXT PRIMARY KEY, enabled INTEGER, key TEXT, value TEXT, createdby TEXT)");
+  db.run("CREATE TABLE IF NOT EXISTS users (uuid TEXT PRIMARY KEY, name TEXT, email TEXT, password TEXT, verified INTEGER)");
 });
 
 const assets = require(process.env.RAZZLE_ASSETS_MANIFEST);
@@ -18,21 +18,55 @@ const server = express();
 
 const apiRouter = express.Router();
 
+// API
+
+// PUBLIC
+
 apiRouter.get('/darklaunch_bundle', function(req, res) {
-    db.all("SELECT * from codes", (err, all) => res.json(all)); // Validate err?
+  db.all("SELECT * from codes", (err, all) => res.json(all)); // Validate err?
 });
 
-apiRouter.post('/addCode', function(req, res) {
+// END PUBLIC
+
+// SESSIONED
+
+apiRouter.get('/show_unapprove', function(req, res) {
+  // Returns a list of all the unapproved users
+  res.sendStatus(200);
+});
+
+apiRouter.post('/add_code', function(req, res) {
   const q = req.body;  
   const vals = [q['code'], q['enabled'], q['key'], q['value']]; // Sanitize probs
   db.run("INSERT OR REPLACE INTO codes VALUES(?,?,?,?)", ...vals);
   res.sendStatus(200);
 });
 
-apiRouter.post('/removeCode', function(req, res) {
+apiRouter.post('/remove_code', function(req, res) {
   db.run("DELETE FROM codes WHERE code=(?)", req.body['code']);
   res.sendStatus(200);
 });
+
+apiRouter.post('/login', function(req, res) {
+  // Give user a token that ages out of the system
+  // TODO
+  res.sendStatus(200);
+});
+
+apiRouter.post('/register', function(req, res) {
+  // Register a user and put them in the table but not approved
+  res.sendStatus(200);
+});
+
+apiRouter.post('/approve', function(req, res) {
+  // Circle of trust approval system
+  // Given a user that's already in the system, their session key, set verified to true on the new user
+  res.sendStatus(200);
+});
+
+// END SESSIONED
+
+// END API
 
 server.use(BodyParser.json());
 
@@ -49,7 +83,7 @@ server
     <head>
         <meta http-equiv="X-UA-Compatible" content="IE=edge" />
         <meta charSet='utf-8' />
-        <title>Welcome to Razzle</title>
+        <title>Twilight</title>
         <meta name="viewport" content="width=device-width, initial-scale=1">
         ${assets.client.css
           ? `<link rel="stylesheet" href="${assets.client.css}">`
