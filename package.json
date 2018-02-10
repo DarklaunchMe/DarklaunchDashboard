@@ -1,6 +1,6 @@
 {
-  "name": "razzle-examples-basic",
-  "version": "0.8.11",
+  "name": "twilight",
+  "version": "0.1",
   "license": "MIT",
   "scripts": {
     "start": "razzle start",
