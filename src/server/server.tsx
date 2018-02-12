@@ -43,7 +43,7 @@ apiRouter.get('/show_unapprove', function(req: express.Request, res: express.Res
 apiRouter.post('/add_code', function(req: express.Request, res: express.Response) {
   const q = req.body;  
   const vals = [q.code, q.enabled, q.key, q.value]; // Sanitize probs
-  db.run('INSERT OR REPLACE INTO codes VALUES(?,?,?,?', ...vals);
+  db.run('INSERT OR REPLACE INTO codes VALUES(?,?,?,?)', ...vals);
   res.sendStatus(200);
 });
 
