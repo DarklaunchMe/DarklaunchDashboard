@@ -34,7 +34,7 @@
     "tslint": "5.8.0",
     "tslint-loader": "^3.5.3",
     "tslint-react": "^3.2.0",
-    "typescript": "2.5.1"
+    "typescript": "^2.5.1"
   },
   "jest": {
     "transform": {
