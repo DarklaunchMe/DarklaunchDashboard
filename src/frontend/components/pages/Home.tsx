@@ -1,11 +1,11 @@
-import React, { Component } from 'react';
+import React, { Component, ChangeEvent } from 'react';
 
 import AuthModal from '../AuthModal';
 import AddModal from '../AddModal';
 
 import DomainStore from '../../stores/DomainStore';
 
-import { Header, Input } from 'semantic-ui-react';
+import { Header, Input, InputOnChangeData } from 'semantic-ui-react';
 
 type Darklaunch = {
     code: string,
@@ -30,8 +30,8 @@ class Home extends Component<{}, State> {
         this.setState({darklaunches: darklaunchResponse});
     }
 
-    updateFilter(e: any) {
-        this.setState({filter: e.target.value});
+    updateFilter = (e: ChangeEvent<any>, data: InputOnChangeData) => {
+        this.setState({filter: data.value});
     }
 
     search(darklaunch: Darklaunch) {
@@ -39,7 +39,7 @@ class Home extends Component<{}, State> {
     }
 
     renderCodes() {
-        return this.state.darklaunches.filter(this.search).map((darklaunch: Darklaunch, i) => 
+        return this.state.darklaunches.filter(this.search).map((darklaunch: Darklaunch, i: number) => 
             <div key={i}> {darklaunch.code} is {darklaunch.enabled ? 'Enabled' : 'Disabled'} </div>
         );       
     }
