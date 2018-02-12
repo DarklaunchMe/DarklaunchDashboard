@@ -18,3 +18,5 @@ build/*
 # Dependency directories
 node_modules/
 
+# databases
+darklaunch.db
