@@ -7,14 +7,14 @@ import AddModal from '../AddModal';
 import DomainStore from '../../stores/DomainStore';
 
 type Darklaunch = {
-    code: string,
-    enabled: boolean
+    code: string;
+    enabled: boolean;
 };
 
 type State = {
-    darklaunches: Darklaunch[],
-    filter: string,
-    addingCode: boolean
+    darklaunches: Darklaunch[];
+    filter: string;
+    addingCode: boolean;
 };
 
 class Home extends Component<{}, State> {
@@ -26,30 +26,32 @@ class Home extends Component<{}, State> {
 
     async componentDidMount() {
         const darklaunchResponse = await DomainStore.getDarklaunches();
-        this.setState({darklaunches: darklaunchResponse});
+        this.setState({ darklaunches: darklaunchResponse });
     }
 
     updateFilter = (e: ChangeEvent<any>, data: InputOnChangeData) => {
-        this.setState({filter: data.value});
-    }
+        this.setState({ filter: data.value });
+    };
 
     search(darklaunch: Darklaunch) {
         return darklaunch.code.indexOf(this.state.filter) > -1;
     }
 
     renderCodes() {
-        return this.state.darklaunches.filter(this.search).map((darklaunch: Darklaunch, i: number) => 
-            <div key={i}> {darklaunch.code} is {darklaunch.enabled ? 'Enabled' : 'Disabled'} </div>
-        );       
+        return this.state.darklaunches.filter(this.search).map((darklaunch: Darklaunch, i: number) => (
+            <div key={i}>
+                {darklaunch.code} is {darklaunch.enabled ? 'Enabled' : 'Disabled'}
+            </div>
+        ));
     }
-    
+
     render() {
         return (
             <div className="home">
                 <Header>
                     <div className="title">Welcome to Twilight</div>
                 </Header>
-                <Input placeholder="Search..." onChange={this.updateFilter}/>
+                <Input placeholder="Search..." onChange={this.updateFilter} />
                 <AddModal />
                 <AuthModal />
                 {this.renderCodes()}

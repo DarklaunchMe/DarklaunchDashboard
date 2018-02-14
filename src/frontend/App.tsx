@@ -10,7 +10,7 @@ import 'semantic-ui-css/semantic.min.css';
 const App = () => (
     <Switch>
         <Route exact={true} path="/" component={Home} />
-    </Switch>       
+    </Switch>
 );
 
 export default App;
