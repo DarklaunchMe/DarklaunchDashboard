@@ -28,7 +28,8 @@
     "acceptance-tests",
     "webpack",
     "jest",
-    "razzle.config.js"
+    "razzle.config.js",
+    "es5"
   ],
   "types": ["typePatches", "node", "webpack-env"]
 }

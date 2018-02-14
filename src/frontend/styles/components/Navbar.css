@@ -1,0 +1,33 @@
+.nav-bar {
+    margin-bottom: 20px;
+}
+
+.header-bar {
+    background-color: black;
+    color: white;
+}
+
+.header-content {
+    color: white;
+}
+
+.logo-container {
+    margin-top: 10px;
+}
+
+.logo {
+    width: 20px;
+    height: 20px;
+}
+
+.auth-container {
+    float: right;
+}
+
+.sign-in-text {
+    color: white;
+}
+
+.register-text {
+    color: white;
+}

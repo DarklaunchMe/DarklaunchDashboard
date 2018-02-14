@@ -1,8 +1,7 @@
 import React, { ChangeEvent, Component, SyntheticEvent } from 'react';
 import { Header, Input, InputOnChangeData } from 'semantic-ui-react';
 
-import AddModal from '../AddModal';
-import AuthModal from '../AuthModal';
+import Navbar from '../Navbar';
 
 import DomainStore from '../../stores/DomainStore';
 
@@ -48,12 +47,8 @@ class Home extends Component<{}, State> {
     render() {
         return (
             <div className="home">
-                <Header>
-                    <div className="title">Welcome to Twilight</div>
-                </Header>
+                <Navbar />
                 <Input placeholder="Search..." onChange={this.updateFilter} />
-                <AddModal />
-                <AuthModal />
                 {this.renderCodes()}
             </div>
         );

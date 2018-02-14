@@ -6,6 +6,6 @@ class DataStore {
     static darklaunchOptions = [ { key: 'userID', value: 'uuid', text: 'User ID' } ];
 }
 
-// Support: UserID, Geolocation, Percentage Deploy, callback
+// Support: UserID, Geolocation, Percentage Deploy, callback/defined boolean
 
 export default DataStore;

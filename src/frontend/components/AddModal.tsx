@@ -4,15 +4,7 @@ import { Button, Dropdown, Header, Icon, Input, Modal } from 'semantic-ui-react'
 
 import DataStore from '../stores/DataStore';
 
-interface State {
-    code: string;
-}
-
 class AddModal extends Component<{}, {}> {
-    state = {
-        string: ''
-    };
-
     onChange = (e: SyntheticEvent<HTMLElement>, data: any) => {
         console.log(data);
     };
