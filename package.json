@@ -1,60 +1,50 @@
 {
-  "name": "twilight",
-  "version": "0.1",
-  "license": "MIT",
-  "scripts": {
-    "start": "razzle start",
-    "build": "razzle build",
-    "test": "razzle test --env=jsdom",
-    "start:prod": "NODE_ENV=production node build/server.js"
-  },
-  "dependencies": {
-    "@types/sqlite3": "^3.1.1",
-    "body-parser": "^1.18.2",
-    "express": "^4.15.2",
-    "prettier": "^1.10.2",
-    "react": "^16.0.0",
-    "react-dom": "^16.0.0",
-    "react-router-dom": "^4.2.2",
-    "semantic-ui-css": "^2.2.14",
-    "semantic-ui-react": "^0.78.2",
-    "sqlite3": "^3.1.13"
-  },
-  "devDependencies": {
-    "@types/express": "^4.0.35",
-    "@types/jest": "^20.0.1",
-    "@types/node": "^8.0.53",
-    "@types/react": "^16.0.9",
-    "@types/react-dom": "^16.0.0",
-    "@types/react-router-dom": "^4.2.3",
-    "@types/webpack-env": "^1.13.2",
-    "raf": "^3.3.2",
-    "razzle": "^0.8.11",
-    "ts-jest": "20.0.6",
-    "ts-loader": "2.3.4",
-    "tslint": "5.8.0",
-    "tslint-loader": "^3.5.3",
-    "tslint-react": "^3.2.0",
-    "typescript": "^2.5.1"
-  },
-  "jest": {
-    "transform": {
-      ".(ts|tsx)": "<rootDir>/node_modules/ts-jest/preprocessor.js",
-      "^.+\\.css$": "<rootDir>/node_modules/razzle/config/jest/cssTransform.js",
-      "^(?!.*\\.(js|jsx|css|json)$)": "<rootDir>/node_modules/razzle/config/jest/fileTransform.js"
+    "name": "darklaunch",
+    "version": "0.1.0",
+    "license": "MIT",
+    "scripts": {
+        "start": "razzle start",
+        "build": "razzle build",
+        "test": "razzle test --env=jsdom",
+        "start:prod": "NODE_ENV=production node build/server.js"
     },
-    "testMatch": [
-      "<rootDir>/src/**/__tests__/**/*.(ts|js)?(x)",
-      "<rootDir>/src/**/?(*.)(spec|test).(ts|js)?(x)"
-    ],
-    "moduleFileExtensions": [
-      "ts",
-      "tsx",
-      "js",
-      "json"
-    ],
-    "collectCoverageFrom": [
-      "src/**/*.{js,jsx,ts,tsx}"
-    ]
-  }
+    "dependencies": {
+        "@types/sqlite3": "^3.1.1",
+        "body-parser": "^1.18.2",
+        "express": "^4.15.2",
+        "prettier": "^1.10.2",
+        "react": "^16.0.0",
+        "react-dom": "^16.0.0",
+        "react-router-dom": "^4.2.2",
+        "semantic-ui-css": "^2.2.14",
+        "semantic-ui-react": "^0.78.2",
+        "sqlite3": "^3.1.13"
+    },
+    "devDependencies": {
+        "@types/express": "^4.0.35",
+        "@types/jest": "^20.0.1",
+        "@types/node": "^8.0.53",
+        "@types/react": "^16.0.9",
+        "@types/react-dom": "^16.0.0",
+        "@types/react-router-dom": "^4.2.3",
+        "@types/webpack-env": "^1.13.2",
+        "raf": "^3.3.2",
+        "razzle": "^0.8.11",
+        "ts-jest": "20.0.6",
+        "ts-loader": "2.3.4",
+        "tslint": "5.8.0",
+        "tslint-loader": "^3.5.3",
+        "tslint-react": "^3.2.0",
+        "typescript": "^2.5.1"
+    },
+    "jest": {
+        "transform": {
+            ".(ts|tsx)": "<rootDir>/node_modules/ts-jest/preprocessor.js",
+            "^.+\\.css$": "<rootDir>/node_modules/razzle/config/jest/cssTransform.js",
+            "^(?!.*\\.(js|jsx|css|json)$)": "<rootDir>/node_modules/razzle/config/jest/fileTransform.js"
+        },
+        "testMatch": [ "<rootDir>/src/**/__tests__/**/*.(ts|js)?(x)", "<rootDir>/src/**/?(*.)(spec|test).(ts|js)?(x)" ],
+        "moduleFileExtensions": [ "ts", "tsx", "js", "json" ],
+        "collectCoverageFrom": [ "src/**/*.{js,jsx,ts,tsx}" ]
+    }
 }

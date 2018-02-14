@@ -1,4 +1,4 @@
-import React, { ChangeEvent, Component } from 'react';
+import React, { ChangeEvent, Component, SyntheticEvent } from 'react';
 import { Header, Input, InputOnChangeData } from 'semantic-ui-react';
 
 import AddModal from '../AddModal';
@@ -29,7 +29,7 @@ class Home extends Component<{}, State> {
         this.setState({ darklaunches: darklaunchResponse });
     }
 
-    updateFilter = (e: ChangeEvent<any>, data: InputOnChangeData) => {
+    updateFilter = (e: SyntheticEvent<HTMLElement>, data: InputOnChangeData) => {
         this.setState({ filter: data.value });
     };
 

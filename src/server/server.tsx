@@ -10,10 +10,10 @@ console.log(process.env.RAZZLE_ASSETS_MANIFEST!);
 
 let assets: any;
 
-const raz = function getRazzle() {
+const syncLoadAssets = () => {
     assets = require(process.env.RAZZLE_ASSETS_MANIFEST!);
 };
-raz();
+syncLoadAssets();
 
 // import assets = require(process.env.RAZZLE_ASSETS_MANIFEST!);
 

@@ -1,3 +1,6 @@
+/**
+ * A Store for HTTP actions
+ */
 class DomainStore {
     static async getDarklaunches() {
         const response = await fetch('/api/darklaunch_bundle', { method: 'GET' });

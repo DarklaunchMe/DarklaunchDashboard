@@ -1,17 +1,40 @@
-import React, { Component } from 'react';
+import React, { Component, SyntheticEvent } from 'react';
 
 import { Button, Dropdown, Header, Icon, Input, Modal } from 'semantic-ui-react';
 
-class AddModal extends Component {
+import DataStore from '../stores/DataStore';
+
+interface State {
+    code: string;
+}
+
+class AddModal extends Component<{}, {}> {
+    state = {
+        string: ''
+    };
+
+    onChange = (e: SyntheticEvent<HTMLElement>, data: any) => {
+        console.log(data);
+    };
+
     render() {
         const AddCodeButton = <Button content="Add Code" icon="privacy" labelPosition="left" />;
-        const countryOptions = [ { key: 'af', value: 'af', flag: 'af', text: 'Afghanistan' } ];
+        const enabledOptions = [
+            { icon: 'checkmark', value: 1, text: 'Enabled' },
+            { icon: 'remove', value: 0, text: 'Disabled' }
+        ];
         return (
-            <Modal trigger={AddCodeButton} closeIcon={true}>
-                <Header icon="privacy" content="Add Code" />
+            <Modal trigger={AddCodeButton}>
+                <Header icon="privacy" content="Add Code" closeIcon />
                 <Modal.Content>
+                    <div> Code </div>
                     <Input placeholder="Code" />
-                    <Dropdown placeholder="Select Country" fluid search selection options={countryOptions} />
+                    <div> State </div>
+                    <Dropdown placeholder="State" selection options={enabledOptions} width={'200px'} />
+                    <div> Launch Type </div>
+                    <Dropdown placeholder="Launch Type" search selection options={DataStore.darklaunchOptions} />
+                    <div> Launch Parameter </div>
+                    <Input placeholder="Launch Parameter" />
                 </Modal.Content>
                 <Modal.Actions>
                     <Button color="red">
