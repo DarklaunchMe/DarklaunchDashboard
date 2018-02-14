@@ -1,27 +1,27 @@
-import React, { Component, ChangeEvent } from 'react';
+import React, { ChangeEvent, Component } from 'react';
 import { Header, Input, InputOnChangeData } from 'semantic-ui-react';
 
-import AuthModal from '../AuthModal';
 import AddModal from '../AddModal';
+import AuthModal from '../AuthModal';
 
 import DomainStore from '../../stores/DomainStore';
 
-type Darklaunch = {
+interface Darklaunch {
     code: string;
     enabled: boolean;
-};
+}
 
-type State = {
+interface State {
     darklaunches: Darklaunch[];
     filter: string;
     addingCode: boolean;
-};
+}
 
 class Home extends Component<{}, State> {
     state = {
+        addingCode: false,
         darklaunches: [],
-        filter: '',
-        addingCode: false
+        filter: ''
     };
 
     async componentDidMount() {
@@ -33,17 +33,17 @@ class Home extends Component<{}, State> {
         this.setState({ filter: data.value });
     };
 
-    search(darklaunch: Darklaunch) {
+    search = (darklaunch: Darklaunch) => {
         return darklaunch.code.indexOf(this.state.filter) > -1;
-    }
+    };
 
-    renderCodes() {
+    renderCodes = () => {
         return this.state.darklaunches.filter(this.search).map((darklaunch: Darklaunch, i: number) => (
             <div key={i}>
                 {darklaunch.code} is {darklaunch.enabled ? 'Enabled' : 'Disabled'}
             </div>
         ));
-    }
+    };
 
     render() {
         return (

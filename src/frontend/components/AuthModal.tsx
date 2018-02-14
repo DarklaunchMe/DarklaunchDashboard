@@ -1,6 +1,6 @@
 import React, { Component } from 'react';
 
-import { Button, Header, Modal, Icon, Input } from 'semantic-ui-react';
+import { Button, Header, Icon, Input, Modal } from 'semantic-ui-react';
 
 import DomainStore from '../stores/DomainStore';
 
