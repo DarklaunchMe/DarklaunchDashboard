@@ -4,11 +4,7 @@ import { Button, Header, Modal, Icon } from 'semantic-ui-react';
 
 class AddModal extends Component {
     render() {
-        const AddCodeButton = <Button
-            content="Add Code"
-            icon="privacy"
-            labelPosition="left"
-        />;
+        const AddCodeButton = <Button content="Add Code" icon="privacy" labelPosition="left" />;
         return (
             <Modal trigger={AddCodeButton} closeIcon={true}>
                 <Header icon="privacy" content="Add Code" />
