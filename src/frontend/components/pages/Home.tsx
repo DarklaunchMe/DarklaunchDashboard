@@ -1,11 +1,10 @@
 import React, { Component, ChangeEvent } from 'react';
+import { Header, Input, InputOnChangeData } from 'semantic-ui-react';
 
 import AuthModal from '../AuthModal';
 import AddModal from '../AddModal';
 
 import DomainStore from '../../stores/DomainStore';
-
-import { Header, Input, InputOnChangeData } from 'semantic-ui-react';
 
 type Darklaunch = {
     code: string,
