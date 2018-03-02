@@ -2,6 +2,7 @@ import App from './../frontend/App';
 
 import BodyParser from 'body-parser';
 import * as express from 'express';
+import fs from 'fs';
 import * as React from 'react';
 import { renderToString } from 'react-dom/server';
 import { StaticRouter } from 'react-router-dom';
@@ -46,6 +47,18 @@ apiRouter.get('/darklaunch_bundle', (req: express.Request, res: express.Response
 // END PUBLIC
 
 // SESSIONED
+
+apiRouter.get('/generate_config', (req: express.Request, res: express.Response) => {
+    // Returns a list of all the unapproved users
+    const config = {url: req.hostname};
+    const fileContent = `module.exports = ${JSON.stringify(config, null, 4)}`;
+    fs.writeFile('/tmp/darklaunch.config.js', fileContent, 'utf8', (err) => {
+        if (err) {
+            return console.log(err);
+        }
+        res.download('/tmp/darklaunch.config.js');
+    }); 
+});
 
 apiRouter.get('/show_unapprove', (req: express.Request, res: express.Response) => {
     // Returns a list of all the unapproved users

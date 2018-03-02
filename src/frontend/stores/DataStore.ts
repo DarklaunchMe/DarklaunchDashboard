@@ -1,11 +1,11 @@
 /**
- * An Observable Datastore used to render components.
+ * An Observable Datastore used to render components. holds all darklaunch codes, options, etc.
  */
 class DataStore {
     // TODO: CONSTRUCT THESE FROM THE SERVER
-    static darklaunchOptions = [ { key: 'userID', value: 'uuid', text: 'User ID' } ];
+    darklaunchOptions = [ { key: 'userID', value: 'uuid', text: 'User ID' } ];
 }
 
 // Support: UserID, Geolocation, Percentage Deploy, callback/defined boolean
 
-export default DataStore;
+export default new DataStore();

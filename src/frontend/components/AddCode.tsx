@@ -3,11 +3,33 @@ import React, { Component, SyntheticEvent } from 'react';
 import { Button, Dropdown, Header, Icon, Input, Modal } from 'semantic-ui-react';
 
 import DataStore from '../stores/DataStore';
+import DomainStore from '../stores/DomainStore';
 
-class AddModal extends Component<{}, {}> {
+interface State {
+    contents: {
+        code: string;
+        enabled: boolean;
+        launchParameter: string;
+        launchType: string;
+    };
+}
+
+class AddCode extends Component<{}, State> {
+    state = {
+        contents: {
+            code: '',
+            enabled: false,
+            launchParameter: '',
+            launchType: ''
+        },
+    };
     onChange = (e: SyntheticEvent<HTMLElement>, data: any) => {
         console.log(data);
     };
+
+    doAddCode() {
+        DomainStore.addCode({});
+    }
 
     render() {
         const AddCodeButton = <Button content="Add Code" icon="privacy" labelPosition="left" />;
@@ -33,7 +55,7 @@ class AddModal extends Component<{}, {}> {
                         <Icon name="remove" /> Cancel
                     </Button>
                     <Button color="green">
-                        <Icon name="checkmark" /> Create
+                        <Icon name="checkmark" onClick={this.doAddCode}/> Create
                     </Button>
                 </Modal.Actions>
             </Modal>
@@ -41,4 +63,4 @@ class AddModal extends Component<{}, {}> {
     }
 }
 
-export default AddModal;
+export default AddCode;

@@ -7,6 +7,24 @@ class DomainStore {
         const json = await response.json();
         return json;
     }
+
+    static async register(payload: object) {
+        const response = await fetch('/api/register', { method: 'POST', body: JSON.stringify(payload)});
+        const json = await response.json();
+        return json;
+    }
+
+    static async signin(payload: object) {
+        const response = await fetch('/api/register', { method: 'POST', body: JSON.stringify(payload)});
+        const json = await response.json();
+        return json;
+    }
+
+    static async addCode(payload: object) {
+        const response = await fetch('/api/add_code', { method: 'POST', body: JSON.stringify(payload)});
+        const json = await response.json();
+        return json;
+    }
 }
 
 export default DomainStore;

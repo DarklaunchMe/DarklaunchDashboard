@@ -1,6 +1,7 @@
 import React, { ChangeEvent, Component, SyntheticEvent } from 'react';
 import { Header, Input, InputOnChangeData } from 'semantic-ui-react';
 
+import AddCode from '../AddCode';
 import Navbar from '../Navbar';
 
 import DomainStore from '../../stores/DomainStore';
@@ -49,6 +50,7 @@ class Home extends Component<{}, State> {
             <div className="home">
                 <Navbar />
                 <Input placeholder="Search..." onChange={this.updateFilter} />
+                <AddCode />
                 {this.renderCodes()}
             </div>
         );

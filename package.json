@@ -11,7 +11,9 @@
     "dependencies": {
         "@types/sqlite3": "^3.1.1",
         "body-parser": "^1.18.2",
+        "darklaunch-js": "^0.1.9",
         "express": "^4.15.2",
+        "fs": "^0.0.1-security",
         "prettier": "^1.10.2",
         "react": "^16.0.0",
         "react-dom": "^16.0.0",
@@ -43,8 +45,18 @@
             "^.+\\.css$": "<rootDir>/node_modules/razzle/config/jest/cssTransform.js",
             "^(?!.*\\.(js|jsx|css|json)$)": "<rootDir>/node_modules/razzle/config/jest/fileTransform.js"
         },
-        "testMatch": [ "<rootDir>/src/**/__tests__/**/*.(ts|js)?(x)", "<rootDir>/src/**/?(*.)(spec|test).(ts|js)?(x)" ],
-        "moduleFileExtensions": [ "ts", "tsx", "js", "json" ],
-        "collectCoverageFrom": [ "src/**/*.{js,jsx,ts,tsx}" ]
+        "testMatch": [
+            "<rootDir>/src/**/__tests__/**/*.(ts|js)?(x)",
+            "<rootDir>/src/**/?(*.)(spec|test).(ts|js)?(x)"
+        ],
+        "moduleFileExtensions": [
+            "ts",
+            "tsx",
+            "js",
+            "json"
+        ],
+        "collectCoverageFrom": [
+            "src/**/*.{js,jsx,ts,tsx}"
+        ]
     }
 }

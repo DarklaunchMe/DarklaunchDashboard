@@ -29,7 +29,16 @@ class ActionItem extends Component<Props, State> {
 
     doAction = () => {
         // TODO: Register and login stuff
-        console.log(this.state);
+        switch (this.props.action) {
+            case AuthAction.REGISTER:
+                DomainStore.register(this.state.contents);
+                break;
+            case AuthAction.SIGNIN:
+                DomainStore.signin(this.state.contents);
+                break;
+            default:
+                return;
+        }
     };
 
     openModal = () => {

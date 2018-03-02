@@ -4,12 +4,13 @@ import { Grid, Header, Image } from 'semantic-ui-react';
 import { AuthAction } from '../types/types';
 
 import ActionItem from './ActionItem';
-import AddModal from './AddModal';
 
 import logo from '../static/darklaunchlogo.png';
 
 import '../styles/components/Navbar.css';
 
+// import Darklaunch from 'darklaunch-js';
+const Darklaunch = require('darklaunch-js');
 interface State {
     signingIn: boolean;
 }
