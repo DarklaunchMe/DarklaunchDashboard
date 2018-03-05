@@ -31,9 +31,13 @@ class Navbar extends Component<{}, State> {
                         <Header as="h2" size="huge" image={logo} content={title} />
                     </Grid.Column>
                     <Grid.Column floated="right" width={5} verticalAlign="middle">
-                        <ActionItem action={AuthAction.SIGNIN} />
-                        |
-                        <ActionItem action={AuthAction.REGISTER} />
+                        {Darklaunch.isEnabled('UserAuth') ? (
+                            <div>
+                                <ActionItem action={AuthAction.SIGNIN} />
+                                |
+                                <ActionItem action={AuthAction.REGISTER} />
+                            </div>
+                        ) : null}
                     </Grid.Column>
                 </Grid>
             </div>

@@ -50,14 +50,14 @@ apiRouter.get('/darklaunch_bundle', (req: express.Request, res: express.Response
 
 apiRouter.get('/generate_config', (req: express.Request, res: express.Response) => {
     // Returns a list of all the unapproved users
-    const config = {url: req.hostname};
+    const config = { url: req.hostname };
     const fileContent = `module.exports = ${JSON.stringify(config, null, 4)}`;
     fs.writeFile('/tmp/darklaunch.config.js', fileContent, 'utf8', (err) => {
         if (err) {
             return console.log(err);
         }
         res.download('/tmp/darklaunch.config.js');
-    }); 
+    });
 });
 
 apiRouter.get('/show_unapprove', (req: express.Request, res: express.Response) => {
@@ -67,8 +67,8 @@ apiRouter.get('/show_unapprove', (req: express.Request, res: express.Response) =
 
 apiRouter.post('/add_code', (req: express.Request, res: express.Response) => {
     const q = req.body;
-    const vals = [ q.code, q.enabled, q.key, q.value ]; // Sanitize probs
-    db.run('INSERT OR REPLACE INTO codes VALUES(?,?,?,?)', ...vals);
+    const vals = [ q.code, q.enabled, q.key, q.value, q.createdby ]; // Sanitize probs
+    db.run('INSERT OR REPLACE INTO codes VALUES(?,?,?,?,?)', ...vals);
     res.sendStatus(200);
 });
 

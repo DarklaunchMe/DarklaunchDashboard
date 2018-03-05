@@ -3,8 +3,12 @@
  */
 class UserStore {
     // TODO: CONSTRUCT THESE FROM THE SERVER
-    isSignedIn: boolean = false;    
+    isSignedIn: boolean = false;
     userInfo: any = {};
+    getUser() {
+        // Some day well do auth. Today is not that day.
+        return 'testuser';
+    }
 }
 
-export default UserStore;
+export default new UserStore();

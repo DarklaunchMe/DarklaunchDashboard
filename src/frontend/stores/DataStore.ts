@@ -3,9 +3,12 @@
  */
 class DataStore {
     // TODO: CONSTRUCT THESE FROM THE SERVER
-    darklaunchOptions = [ { key: 'userID', value: 'uuid', text: 'User ID' } ];
+    static darklaunchOptions = [
+        { key: 'all', value: 'all', text: 'All Users' },
+        { key: 'userID', value: 'uuid', text: 'User ID' }
+    ];
 }
 
 // Support: UserID, Geolocation, Percentage Deploy, callback/defined boolean
 
-export default new DataStore();
+export default DataStore;

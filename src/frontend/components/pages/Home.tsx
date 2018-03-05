@@ -2,14 +2,11 @@ import React, { ChangeEvent, Component, SyntheticEvent } from 'react';
 import { Header, Input, InputOnChangeData } from 'semantic-ui-react';
 
 import AddCode from '../AddCode';
+import DarklaunchItem from '../DarklaunchItem';
 import Navbar from '../Navbar';
 
 import DomainStore from '../../stores/DomainStore';
-
-interface Darklaunch {
-    code: string;
-    enabled: boolean;
-}
+import { Darklaunch } from '../../types/types';
 
 interface State {
     darklaunches: Darklaunch[];
@@ -38,9 +35,9 @@ class Home extends Component<{}, State> {
     };
 
     renderCodes = () => {
-        return this.state.darklaunches.filter(this.search).map((darklaunch: Darklaunch, i: number) => (
+        return this.state.darklaunches.filter(this.search).map((darklaunchProps: Darklaunch, i: number) => (
             <div key={i}>
-                {darklaunch.code} is {darklaunch.enabled ? 'Enabled' : 'Disabled'}
+                <DarklaunchItem {...darklaunchProps} />
             </div>
         ));
     };

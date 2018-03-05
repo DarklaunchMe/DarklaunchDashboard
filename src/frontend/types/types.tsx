@@ -13,3 +13,11 @@ export interface AuthFields {
     email: string;
     password: string;
 }
+
+export interface Darklaunch {
+    code: string;
+    createdby: string;
+    enabled: number;
+    key: string;
+    value: string;
+}
